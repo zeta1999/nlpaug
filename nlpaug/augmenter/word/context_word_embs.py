@@ -31,6 +31,8 @@ def init_context_word_embs_model(model_path, device, force_reload=False, tempera
         model = nml.Bert(model_path, device=device, temperature=temperature, top_k=top_k, top_p=top_p)
     elif 'xlnet' in model_path:
         model = nml.XlNet(model_path, device=device, temperature=temperature, top_k=top_k, top_p=top_p, optimize=optimize)
+    elif 'electra' in model_path:
+        model = nml.Electra(model_path, device=device, temperature=temperature, top_k=top_k, top_p=top_p)
     else:
         raise ValueError('Model name value is unexpected. Only support BERT, DistilBERT, RoBERTa and XLNet model.')
 
